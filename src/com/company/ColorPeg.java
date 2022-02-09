@@ -1,37 +1,32 @@
 package com.company;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Random;
+
 public class ColorPeg {
     private String color;
-    private int position;
-    private Boolean isCorrect;
 
-    public ColorPeg(String color, int position){
+    public ColorPeg(String color){
         this.color = color;
-        this.position = position;
     }
 
-    public int getPosition() {
-        return position;
+    public ColorPeg(){
+        ArrayList<String> colorList = new ArrayList<>(Arrays.asList(
+                "green", "red", "blue", "yellow", "orange"
+        ));
+
+        Random rand = new Random();
+
+        this.color = colorList.get(rand.nextInt(colorList.size()));
     }
 
     public String getColor() {
         return color;
     }
 
-    public Boolean getCorrect() {
-        return isCorrect;
-    }
-
     public void setColor(String color) {
         this.color = color;
-    }
-
-    public void setPosition(int position) {
-        this.position = position;
-    }
-
-    public void setCorrect(Boolean correct) {
-        isCorrect = correct;
     }
 
     @Override
