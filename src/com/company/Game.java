@@ -5,8 +5,9 @@ public class Game {
 
     public void game(){
         Board board = new Board(){};
-        board.generateRandomBoard();
+        board.generateRandomBoard(4);
 
+        board.toString();
         System.out.println(board);
     }
 }

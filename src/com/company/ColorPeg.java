@@ -33,4 +33,9 @@ public class ColorPeg {
     public void setCorrect(Boolean correct) {
         isCorrect = correct;
     }
+
+    @Override
+    public String toString() {
+        return color;
+    }
 }
