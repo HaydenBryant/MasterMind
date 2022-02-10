@@ -11,14 +11,19 @@ public class Game {
     public void game(){
         Board ansBoard = new Board(){};
         ansBoard.generateRandomBoard(4);
-//        System.out.println(ansBoard.toString());
+        System.out.println(ansBoard.toString());
 
-        Board guessBoard = guessBoard();
+        for(int i = 0; i < 10; i++){
+            Board guessBoard = guessBoard();
 
-        if (checkBoard(guessBoard, ansBoard)){
-            System.out.println("Correct");
-        } else {
-            System.out.println("Wrong");
+            if (checkBoard(guessBoard, ansBoard)) {
+                System.out.println("Correct");
+                break;
+            } else {
+                System.out.println("Wrong");
+            }
+
+            System.out.println("last guess was " + guessBoard.toString());
         }
     }
 
