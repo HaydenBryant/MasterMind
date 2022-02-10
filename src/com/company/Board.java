@@ -18,10 +18,6 @@ public class Board {
         this.board = board;
     }
 
-    public int getBoardSize(){
-        return board.size();
-    }
-
     public void generateRandomBoard(int size){
         ArrayList<ColorPeg> newBoard = new ArrayList<>();
         for (int i = 0; i < size; i++){

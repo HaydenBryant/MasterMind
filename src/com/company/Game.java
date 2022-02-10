@@ -9,8 +9,12 @@ public class Game {
     Scanner scan = new Scanner(System.in);
 
     public void game(){
+        controlRound(4);
+    }
+
+    public void controlRound(int boardSize){
         Board ansBoard = new Board(){};
-        ansBoard.generateRandomBoard(4);
+        ansBoard.generateRandomBoard(boardSize);
         System.out.println(ansBoard.toString());
 
         for(int i = 0; i < 10; i++){
@@ -25,6 +29,7 @@ public class Game {
 
             System.out.println("last guess was " + guessBoard.toString());
         }
+
     }
 
     public Board guessBoard(){
@@ -52,5 +57,17 @@ public class Game {
         }
 
         return true;
+    }
+
+    public MarkerBoard genMarkerBoard(Board guessBoard, Board ansBoard){
+        MarkerBoard markerBoard = new MarkerBoard();
+
+        ArrayList<MarkerPeg> markList = new ArrayList<>();
+
+        for (int i = 0; i < 4; i++){
+
+        }
+
+        return markerBoard;
     }
 }
