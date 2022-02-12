@@ -19,8 +19,9 @@ public class Game {
 
         for(int i = 0; i < 10; i++){
             Board guessBoard = guessBoard();
+            MarkerBoard markerBoard = genMarkerBoard(guessBoard, ansBoard);
 
-            if (checkBoard(guessBoard, ansBoard)) {
+            if (checkBoard(markerBoard)) {
                 System.out.println("Correct");
                 break;
             } else {
@@ -28,6 +29,7 @@ public class Game {
             }
 
             System.out.println("last guess was " + guessBoard.toString());
+            System.out.println("Marker board is " + markerBoard.toString());
         }
 
     }
@@ -46,12 +48,11 @@ public class Game {
         return guessBoard;
     }
 
-    public Boolean checkBoard(Board guessBoard, Board ansBoard){
+    public Boolean checkBoard(MarkerBoard markerBoard){
 
         for(int i = 0; i < 4; i++){
-            String guessColor = guessBoard.getBoard().get(i).getColor();
-            String ansColor = ansBoard.getBoard().get(i).getColor();
-            if(!guessColor.equals(ansColor)){
+            String guessColor = markerBoard.getMarkerBoard().get(i).getColor();
+            if (!guessColor.equals("red")){
                 return false;
             }
         }
@@ -65,7 +66,19 @@ public class Game {
         ArrayList<MarkerPeg> markList = new ArrayList<>();
 
         for (int i = 0; i < 4; i++){
-
+            ColorPeg guessPeg = guessBoard.getBoard().get(i);
+            ColorPeg ansPeg = guessBoard.getBoard().get(i);
+            if(guessPeg.getColor().equals(ansPeg.getColor())){
+                MarkerPeg markerPeg = new MarkerPeg("red");
+                markList.add(markerPeg);
+                continue;
+            } else if (ansBoard.getBoard().contains(guessPeg)){
+                MarkerPeg markerPeg = new MarkerPeg("white");
+                markList.add(markerPeg);
+            } else {
+                MarkerPeg markerPeg = new MarkerPeg("");
+                markList.add(markerPeg);
+            }
         }
 
         return markerBoard;
