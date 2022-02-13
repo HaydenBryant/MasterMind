@@ -52,6 +52,7 @@ public class Game {
 
         for(int i = 0; i < 4; i++){
             String guessColor = markerBoard.getMarkerBoard().get(i).getColor();
+            System.out.println(guessColor);
             if (!guessColor.equals("red")){
                 return false;
             }
@@ -67,12 +68,12 @@ public class Game {
 
         for (int i = 0; i < 4; i++){
             ColorPeg guessPeg = guessBoard.getBoard().get(i);
-            ColorPeg ansPeg = guessBoard.getBoard().get(i);
+            ColorPeg ansPeg = ansBoard.getBoard().get(i);
             if(guessPeg.getColor().equals(ansPeg.getColor())){
                 MarkerPeg markerPeg = new MarkerPeg("red");
                 markList.add(markerPeg);
                 continue;
-            } else if (ansBoard.getBoard().contains(guessPeg)){
+            } else if (ansBoard.getBoard().contains(guessPeg.getColor())){
                 MarkerPeg markerPeg = new MarkerPeg("white");
                 markList.add(markerPeg);
             } else {
@@ -80,6 +81,8 @@ public class Game {
                 markList.add(markerPeg);
             }
         }
+
+        markerBoard.setMarkerBoard(markList);
 
         return markerBoard;
     }
