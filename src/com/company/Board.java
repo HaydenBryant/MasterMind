@@ -18,10 +18,35 @@ public class Board {
         this.board = board;
     }
 
-    public void generateRandomBoard(int size){
+    public void generateRandomDuplicateBoard(int size){
         ArrayList<ColorPeg> newBoard = new ArrayList<>();
         for (int i = 0; i < size; i++){
             ColorPeg colorPeg = new ColorPeg();
+            newBoard.add(colorPeg);
+        }
+
+        this.board = newBoard;
+    }
+
+    public void generateRandomBoard(int size){
+        ArrayList<ColorPeg> newBoard = new ArrayList<>();
+        ColorPeg firstPeg = new ColorPeg();
+        newBoard.add(firstPeg);
+        Boolean samePeg = false;
+
+        for (int i = 1; i < size; i++){
+            ColorPeg colorPeg = new ColorPeg();
+            for(ColorPeg peg : newBoard){
+                if(colorPeg.getColor().equals(peg.getColor())){
+                    samePeg = true;
+                    break;
+                }
+            }
+            if (samePeg){
+                i--;
+                samePeg = false;
+                continue;
+            }
             newBoard.add(colorPeg);
         }
 

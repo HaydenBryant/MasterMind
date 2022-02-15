@@ -73,11 +73,16 @@ public class Game {
                 MarkerPeg markerPeg = new MarkerPeg("red");
                 markList.add(markerPeg);
                 continue;
-            } else if (ansBoard.getBoard().contains(guessPeg.getColor())){
-                MarkerPeg markerPeg = new MarkerPeg("white");
-                markList.add(markerPeg);
             } else {
                 MarkerPeg markerPeg = new MarkerPeg("");
+
+                for(ColorPeg peg : ansBoard.getBoard()){
+                    if(guessPeg.getColor().equals(peg.getColor())){
+                        markerPeg.setColor("white");
+                        break;
+                    }
+                }
+
                 markList.add(markerPeg);
             }
         }
