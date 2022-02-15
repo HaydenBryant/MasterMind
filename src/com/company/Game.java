@@ -2,6 +2,7 @@ package com.company;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class Game {
@@ -15,6 +16,8 @@ public class Game {
     public void controlRound(int boardSize){
         Board ansBoard = new Board(){};
         ansBoard.generateRandomBoard(boardSize);
+        System.out.println("Answer will contain pegs of color green, red, blue, yellow, orange, or purple " +
+                "and will contain no duplicates");
         System.out.println(ansBoard.toString());
 
         for(int i = 0; i < 10; i++){
@@ -52,7 +55,6 @@ public class Game {
 
         for(int i = 0; i < 4; i++){
             String guessColor = markerBoard.getMarkerBoard().get(i).getColor();
-            System.out.println(guessColor);
             if (!guessColor.equals("red")){
                 return false;
             }
@@ -86,6 +88,7 @@ public class Game {
                 markList.add(markerPeg);
             }
         }
+
 
         markerBoard.setMarkerBoard(markList);
 

@@ -13,7 +13,7 @@ public class ColorPeg {
 
     public ColorPeg(){
         ArrayList<String> colorList = new ArrayList<>(Arrays.asList(
-                "green", "red", "blue", "yellow", "orange"
+                "green", "red", "blue", "yellow", "orange", "purple"
         ));
 
         Random rand = new Random();
