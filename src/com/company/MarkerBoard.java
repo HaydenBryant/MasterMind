@@ -1,6 +1,7 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
 public class MarkerBoard {
     private ArrayList<MarkerPeg> markerBoard;
@@ -27,4 +28,5 @@ public class MarkerBoard {
 
         return output.substring(0, output.length() - 2);
     }
+
 }

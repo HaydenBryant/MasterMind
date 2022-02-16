@@ -89,7 +89,7 @@ public class Game {
             }
         }
 
-
+        Collections.sort(markList, MarkerPeg.MarkColorComparator);
         markerBoard.setMarkerBoard(markList);
 
         return markerBoard;
