@@ -18,7 +18,7 @@ public class Game {
         ansBoard.generateRandomBoard(boardSize);
         System.out.println("Answer will contain pegs of color green, red, blue, yellow, orange, or purple " +
                 "and will contain no duplicates");
-        System.out.println(ansBoard.toString());
+//        System.out.println(ansBoard.toString());
 
         for(int i = 0; i < 10; i++){
             Board guessBoard = guessBoard();
@@ -34,6 +34,8 @@ public class Game {
             System.out.println("last guess was " + guessBoard.toString());
             System.out.println("Marker board is " + markerBoard.toString());
         }
+
+        System.out.println("Answer board was " + ansBoard.toString());
 
     }
 
